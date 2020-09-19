@@ -1,13 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Item from './app/component/Store/Item';
-import WrapperScreen from './app/screens/WrapperScreen'
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+
+import StoresScreen from './app/screens/StoresScreen'
 export default function App() {
   return (
-    <View>
-      <Item />
-    </View>
+    <SafeAreaView style={styles.container}>
+        <StoresScreen />
+    </SafeAreaView>
   );
 }
 
@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+
   },
 });
