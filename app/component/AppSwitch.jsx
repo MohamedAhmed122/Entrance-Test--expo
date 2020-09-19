@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Switch, StyleSheet } from "react-native";
 import { gray, primary, lightGray } from "../Config/Colors";
 
-const AppSwitch = () => {
+const AppSwitch = ({style}) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
@@ -13,6 +13,7 @@ const AppSwitch = () => {
         ios_backgroundColor={gray}
         onValueChange={toggleSwitch}
         value={isEnabled}
+        style={style}
       />
     </View>
   );
@@ -20,9 +21,7 @@ const AppSwitch = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+
   }
 });
 
