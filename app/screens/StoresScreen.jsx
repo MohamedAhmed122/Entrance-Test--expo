@@ -19,8 +19,6 @@ let FilterStores = storeDate.filter(
 return (
     <View>
         <SearchInput changeText={(text)=> setText(text)}/>
-        
-        <Tabs />
         <View>
             {
                 addStore.length >0 &&
