@@ -1,27 +1,38 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Item from "../component/Item";
+import SearchInput from "../component/SearchInput";
 
 export default function StoresScreen() {
 const [storeDate, setStoreDate] = useState(Stores);
 const [addStore, setAddStore] =useState([])
+const [text, setText] = useState('')
+    console.log(text);
 
+   let FilterStores = storeDate.filter(
+        (store)=>{
+            return store.name.toLowerCase().indexOf(text.toLowerCase()) !==-1;
+        }
+    )
 return (
     <View>
-        {
-            addStore.length >0 &&
+        <SearchInput changeText={(text)=> setText(text)}/>
+        <View>
+            {
+                addStore.length >0 &&
+                <View style={styles.container}>
+                    <Text style={styles.text}>My Favorite Stores</Text>
+                    {addStore.map((store) => (
+                        <Item key={store.id.toString()} store={store}  addStore={addStore} setAddStore={setAddStore} />
+                    ))}
+                </View>
+            }
             <View style={styles.container}>
-                <Text style={styles.text}>My Favorite Stores</Text>
-                {addStore.map((store) => (
+                <Text style={styles.text}>Famous Store</Text>
+                {FilterStores.map((store) => (
                     <Item key={store.id.toString()} store={store}  addStore={addStore} setAddStore={setAddStore} />
                 ))}
             </View>
-        }
-        <View style={styles.container}>
-            <Text style={styles.text}>Famous Store</Text>
-            {storeDate.map((store) => (
-                <Item key={store.id.toString()} store={store}  addStore={addStore} setAddStore={setAddStore} />
-            ))}
         </View>
     </View>
 );
