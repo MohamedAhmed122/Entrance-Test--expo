@@ -35,7 +35,7 @@ return (
             <Text style={styles.timeText} >{place}</Text>
             <AntDesign 
             name='staro'
-            size={24} color={colorIcon? 'gold': 'black'}  
+            size={24} color={'black'}  
             onPress={()=>handleAddStore(store)}
             />
         </View>
